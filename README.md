@@ -17,9 +17,26 @@
 
 ### Datenbank in Kubernetes
 
-### Keycloak in Kubernetes
+### Keycloak in Kubernetes vs. Online Keycloak-Provider
+#### Hosting Keycloak in Kubernetes
+The following approach creates a fresh Keycloak instance in Kubernetes. This does not yet handle a realm-import at creation time.
+https://www.keycloak.org/getting-started/getting-started-kube
+
+
+#### Online Keycloak-Provider
+https://www.cloud-iam.com/
+The 
 
 ### RabbitMQ in Kubernetes
+To deploy RabbitMQ in Kubernetes the [**RabbitMQ Operator**](https://www.rabbitmq.com/kubernetes/operator/operator-overview) should be used.
+It is important to note RabbittMQ provides two different operators:
+- RabbitMQ Cluster Kubernetes Operator
+- RabbitMQ Messaging Topology Operator
+
+For the **RabbitMQ Cluster Kubernetes Operator** to work properly [no custom credentials](https://www.rabbitmq.com/kubernetes/operator/operator-overview#top-op-limitations)
+should be used in **RabbitMQ Messaging Topology Operator**, since it relies on the default credentials.
+
+In order to successfully run [RabbitMQ](https://www.rabbitmq.com/kubernetes/operator/tls-topology-operator) TLS needs to be used.
 
 ## CI/CD-Pipeline (GitHub Actions)
 

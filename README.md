@@ -2,22 +2,22 @@
 
 # Evaluation
 
-## OAuth (over Keycloak) with RabbitMQ
+## OAuth (over Keycloak) with RabbitMQ [Y]
 
-## MiniCube
+## MiniCube [Y]
 
-## Kubernetes
+## Kubernetes [V]
 
-### Load Balancing
+### Load Balancing [V]
 
-### Resilience
+### Resilience [V]
 (Which tools are)
 
-### Blue-green deployment
+### Blue-green deployment [Y]
 
-### Datenbank in Kubernetes
+### Datenbank in Kubernetes [Y]
 
-### Keycloak in Kubernetes vs. Online Keycloak-Provider
+### Keycloak in Kubernetes vs. Online Keycloak-Provider [V]
 #### Hosting Keycloak in Kubernetes
 The following approach creates a fresh Keycloak instance in Kubernetes. This does not yet handle a realm-import at creation time.
 https://www.keycloak.org/getting-started/getting-started-kube
@@ -27,7 +27,7 @@ https://www.keycloak.org/getting-started/getting-started-kube
 https://www.cloud-iam.com/
 The 
 
-### RabbitMQ in Kubernetes
+### RabbitMQ in Kubernetes [V]
 To deploy RabbitMQ in Kubernetes the [**RabbitMQ Operator**](https://www.rabbitmq.com/kubernetes/operator/operator-overview) should be used.
 It is important to note RabbittMQ provides two different operators:
 - RabbitMQ Cluster Kubernetes Operator
@@ -38,7 +38,7 @@ should be used in **RabbitMQ Messaging Topology Operator**, since it relies on t
 
 In order to successfully run [RabbitMQ](https://www.rabbitmq.com/kubernetes/operator/tls-topology-operator) TLS needs to be used.
 
-## CI/CD-Pipeline (GitHub Actions)
+## CI/CD-Pipeline (GitHub Actions) [Y]
 
 Continous Integration and Deployment is an essential component to effectively and reliably publish an application, especially to a container platform. By using these practices, a clean deployment can be guaranteed.
 

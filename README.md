@@ -14,6 +14,10 @@ additional features that can be used to ensure the availability of the services.
 
 https://kubernetes.io/
 
+### Minikube [Y]
+
+[Minikube](https://minikube.sigs.k8s.io/docs/) is a nice solution to set up a lightweight local Kubernetes cluster on a dev machine to simulate the production environment. It will be used for experimentation with deployments, configurations and operators and see them interact with each other in a production-like environment. The setup should be as close to a real production setup as possible and make use of the advantages of cloud infrastructure.
+
 ### Load Balancing [V]
 For Load-Balancing to be possible first it is necessary to have the amount of 
 resources available to run multiple instance. 

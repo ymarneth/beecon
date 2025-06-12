@@ -108,6 +108,7 @@ In previous iterations of this project, there were some issues setting up the OA
 In this iteration, it will again be attempted to make this approach work, in order to manage all authentication and authorization through Keycloak, since the goal is a centralized authentication and authorization provider for a consistent token-based access control across all services. If RabbitMQ can still not be configured correctly, another option like Mosquitto may be tried as a Broker between the sensor messages and the application.
 
 The currently functional apprach using the internal backend of RabbitMQ for authentication and authorization should only be used as a fallback method.
+
 ## CI/CD-Pipeline (GitHub Actions) [Y]
 
 Continous Integration and Deployment is an essential component to effectively and reliably publish an application, especially to a container platform. By using these practices, a clean deployment can be guaranteed.
@@ -141,9 +142,16 @@ Since the repository is hosted on Github, [Github Actions](https://github.com/fe
 Github Actions will be used to perform code checks, build the app jar, build an application container, push the container to an image registry and deploy the image to the target system.
 
 # Conclusio
+- Minikube will be used as a simulated Kubernetes environment
+  - Enables testing of deployment manifests and service configurations
+  - Blue-green Deployment for reducing downtime during deployment
 - Simple Resilience measures will be used
   - Automatic restarting of failing containers
 - RabbitMQ will be hosted in Kubernetes
   - If problems arise with RabbitMQ. It can be replaced with Mosquitto.
 - Keycloak will be used over the remote provider
-  - A certificate will be setup by routing the service over an nginx reverse proxy 
+  - A certificate will be setup by routing the service over an nginx reverse proxy
+- Postgres Database will run inside Kubernetes usng a PersistentVolumeClaim
+- A CI/CD Pipeline using GithHub Actions will be implemented
+  - Ensures reliable and automated builds and deployments
+  - Enables rapid development workflows

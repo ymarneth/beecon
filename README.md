@@ -86,6 +86,13 @@ should be used in **RabbitMQ Messaging Topology Operator**, since it relies on t
 In order to successfully run [RabbitMQ](https://www.rabbitmq.com/kubernetes/operator/tls-topology-operator) TLS needs to be setup.
 And one needs to pass the CA (Certificate Authority) to the RabbitMQ Operator.
 
+## OAuth2 (over Keycloak) with RabbitMQ [Y]
+
+In previous iterations of this project, there were some issues setting up the OAuth2 mechanism with Keycloak and RabbitMQ, since it is apparently not possible to configure RabbitMQ without https enabled. Even so, it would not accept a self-signed certificate, which did not allow for the sensor or the application to authenticate using the token provided by Keycloak.
+
+In this iteration, it will again be attempted to make this approach work, in order to manage all authentication and authorization through Keycloak, since the goal is a centralized authentication and authorization provider for a consistent token-based access control across all services. If RabbitMQ can still not be configured correctly, another option like Mosquitto may be tried as a Broker between the sensor messages and the application.
+
+The currently functional apprach using the internal backend of RabbitMQ for authentication and authorization should only be used as a fallback method.
 ## CI/CD-Pipeline (GitHub Actions) [Y]
 
 Continous Integration and Deployment is an essential component to effectively and reliably publish an application, especially to a container platform. By using these practices, a clean deployment can be guaranteed.

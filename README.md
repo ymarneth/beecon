@@ -90,9 +90,33 @@ And one needs to pass the CA (Certificate Authority) to the RabbitMQ Operator.
 
 Continous Integration and Deployment is an essential component to effectively and reliably publish an application, especially to a container platform. By using these practices, a clean deployment can be guaranteed.
 
+<div style="display: flex; justify-content: space-between;">
+
+<div style="flex: 2; min-width: 70%">
+
+To ensure that a working version of the application can always be delivered, the new code should be checked before it can be committed to the main/master branch. This is achieved by implementing a CI pipeline that runs on pull requests on the main/master branch. In an application that is actually deployed to a production system, direct push to main/master should be disabled, so all code that is running on production is always evaluated against the quality gates that have been set. However, enforcing such standards are limited by the features that are available in the Free Github Repository.
+
+By following a pull request workflow, it is also possible to work on multiple independent feature branches at once, so feature development can happen more smoothly.
+
+</div>
+
+<div style="flex: 1; min-width: 15%; justify-items: end;">
+
+<img src="images/feature-integration.png" alt="Feature Integration" style="width: 90%; height: auto; max-height: 100%">
+
+</div>
+
+</div>
+
+Every time code is pushed to the main/master branch, a build should be performed and the built service or application should immediately be deployed to the test system with a new version number. Version numbers can follow various patters, such as the semver style with major, minor and patch versions. Other styles using the date and time of the build are also viable, especially if the development does not culminate in regular milestones. By doing this, the running application can also be checked on a production-like environment to further ensure that the build will run in the production environment.
+
+This process may be repeated several times, until a stable and complete version is released to the production system.
+
 ![](images/cicd.png)
 
-![](images/feature-integration.png)
+Since the repository is hosted on Github, [Github Actions](https://github.com/features/actions) will be used to implement a CI/CD Pipeline. Since the application is based on Spring and Java/Kotlin, preconfigured actions from the Github catalogue can be used to perform common tasks, like preparing the JDK and building the application using Gradle. This is adventageous, since Github Actions can also be performed locally using the `act` toolset.
+
+Github Actions will be used to perform code checks, build the app jar, build an application container, push the container to an image registry and deploy the image to the target system.
 
 # Conclusio
 - Simple Resilience measures will be used

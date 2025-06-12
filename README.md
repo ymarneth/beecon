@@ -95,4 +95,9 @@ Continous Integration and Deployment is an essential component to effectively an
 ![](images/feature-integration.png)
 
 # Conclusio
-Write at the end: what do we use and how do we use it? And why?
+- Simple Resilience measures will be used
+  - Automatic restarting of failing containers
+- RabbitMQ will be hosted in Kubernetes
+  - If problems arise with RabbitMQ. It can be replaced with Mosquitto.
+- Keycloak will be used over the remote provider
+  - A certificate will be setup by routing the service over an nginx reverse proxy 

@@ -2,10 +2,6 @@
 
 # Evaluation
 
-## OAuth (over Keycloak) with RabbitMQ [Y]
-
-## MiniCube [Y]
-
 ## Kubernetes (K8s) [V]
 With Kubernetes different containers can be hosted and managed individually.
 Kubernetes can be run locally or on a server/cloud provider.
@@ -41,6 +37,7 @@ https://www.apptio.com/topics/kubernetes/best-practices/load-balancer/?src=kc-co
 In Kubernetes one can (relatively) easily setup different methods to improve the resilience of an application. 
 These methods are exemplary:
 
+
 - Self-healing
   - Restarting containers that crash
   - Depending on how the software works internally this can help or the issue can just reoccur
@@ -57,7 +54,21 @@ https://blog.devgenius.io/building-resilient-applications-in-kubernetes-a-hands-
 
 ### Blue-green deployment [Y]
 
-### Datenbank in Kubernetes [Y]
+Blue-green deployment is a stratregy to reduce downtime and risk by running two sseparate production environments in parallel, the "blue" (current) version and the "green" (new) version. During deployment, the green version gets fully deployed and possibly tested before traffic is switched over from the blue enrionment.
+
+This should help to reduce downtime for the Java Application, since the webserver takes some time to start and set up until it is ready to receive traffic. Users should not notice any interruptions during deployment.
+
+It should also allow for safer rollbacks, since the traffic only gets routed to the new version, when the startup is complete and health checks have been performed.
+
+### Database in Kubernetes [Y]
+
+The Postgres database should run in the Kubernetes cluster alongside the application sservices to make use of the declarative deployment process and scaling options provided by the cloud infrastructure. However, this introduces some challenges related to persistence and availablity.
+
+The database will be deployed as a service in the cluster and use a **PersistentVolumeClaim** to ensure that the data is not lost when the pod is restarted. This provides simple data persistence that is suitable for our test deployment and development use case.
+
+All in all, the data base service will most likely only use a single node. The data will be stored via the PVC that is managed by Kubernetes. No backup or restore mechanism is planned for this setup, although it would be a possible extension on the project and necessary for a real-world production environment.
+
+Another important factor is, that the database should only be exposed inside the cluster and serve the application, but never be accessible from the outside.
 
 ### Keycloak in Kubernetes vs. Online Keycloak-Provider [V]
 #### Hosting Keycloak in Kubernetes

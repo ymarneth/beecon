@@ -1,0 +1,32 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/timescale
+        username: root
+        password: root
+        driver-class-name: org.postgresql.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: user
+        password: root
+
+    security:
+        oauth2:
+            client:
+                registration:
+                    keycloak:
+                        client-id: beecon-app
+                        client-secret: <client-secret>
+                        scope: openid,profile,email
+                        provider: keycloak
+                        redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+                provider:
+                    keycloak:
+                        issuer-uri: http://localhost:8081/realms/beecon
+                        user-name-attribute: preferred_username

@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      ARTIFACT_NAME: beecon-app
+      RELEASE_VERSION: 0.0.0
 
     steps:
       - uses: actions/checkout@v4
@@ -34,4 +37,25 @@ jobs:
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew build
+        run: ./gradlew bootJar
+
+      - name: Find JAR file
+        run: |
+          JAR_FILE=$(ls -1 ${ARTIFACT_NAME}/build/libs/*.jar | head -n 1)
+          if [ -z "$JAR_FILE" ]; then
+            echo "No JAR file found!"
+            exit 1
+          fi
+          echo "JAR_FILE=$JAR_FILE" >> $GITHUB_ENV
+      
+      - name: Move artifact
+        run: |
+          mkdir -p artifacts
+          mv $JAR_FILE artifacts/${ARTIFACT_NAME}-${RELEASE_VERSION}.jar
+    
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: beecon-app
+          path: artifacts/${{ env.ARTIFACT_NAME }}-${{ env.RELEASE_VERSION }}.jar
+          retention-days: 1

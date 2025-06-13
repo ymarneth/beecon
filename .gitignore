@@ -29,8 +29,7 @@ out/
 .vscode/
 
 # Local dev application properties
-/config/
-!/config/application.yml.example
+/config/application.yml
 beecon-ui/node_modules/
 beecon-ui/.angular
 beecon-ui/dist

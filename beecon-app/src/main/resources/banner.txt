@@ -1,0 +1,18 @@
+BBBBBBBBBBBBBBBBB
+B::::::::::::::::B
+B::::::BBBBBB:::::B
+BB:::::B     B:::::B
+  B::::B     B:::::B    eeeeeeeeeeee        eeeeeeeeeeee        cccccccccccccccc   ooooooooooo   nnnn  nnnnnnnn
+  B::::B     B:::::B  ee::::::::::::ee    ee::::::::::::ee    cc:::::::::::::::c oo:::::::::::oo n:::nn::::::::nn
+  B::::BBBBBB:::::B  e::::::eeeee:::::ee e::::::eeeee:::::ee c:::::::::::::::::co:::::::::::::::on::::::::::::::nn
+  B:::::::::::::BB  e::::::e     e:::::ee::::::e     e:::::ec:::::::cccccc:::::co:::::ooooo:::::onn:::::::::::::::n
+  B::::BBBBBB:::::B e:::::::eeeee::::::ee:::::::eeeee::::::ec::::::c     ccccccco::::o     o::::o  n:::::nnnn:::::n
+  B::::B     B:::::Be:::::::::::::::::e e:::::::::::::::::e c:::::c             o::::o     o::::o  n::::n    n::::n
+  B::::B     B:::::Be::::::eeeeeeeeeee  e::::::eeeeeeeeeee  c:::::c             o::::o     o::::o  n::::n    n::::n
+  B::::B     B:::::Be:::::::e           e:::::::e           c::::::c     ccccccco::::o     o::::o  n::::n    n::::n
+BB:::::BBBBBB::::::Be::::::::e          e::::::::e          c:::::::cccccc:::::co:::::ooooo:::::o  n::::n    n::::n
+B:::::::::::::::::B  e::::::::eeeeeeee   e::::::::eeeeeeee   c:::::::::::::::::co:::::::::::::::o  n::::n    n::::n
+B::::::::::::::::B    ee:::::::::::::e    ee:::::::::::::e    cc:::::::::::::::c oo:::::::::::oo   n::::n    n::::n
+BBBBBBBBBBBBBBBBB       eeeeeeeeeeeeee      eeeeeeeeeeeeee      cccccccccccccccc   ooooooooooo     nnnnnn    nnnnnn
+
+ :: Spring Boot ::             (${spring-boot.version})

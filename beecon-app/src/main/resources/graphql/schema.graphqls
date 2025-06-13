@@ -1,0 +1,57 @@
+enum AggregationInterval {
+    MINUTE
+    FIVE_MINUTES
+    HALF_HOUR
+    HOUR
+    DAY
+    WEEK
+    MONTH
+    SIX_MONTHS
+}
+
+type Hive {
+    id: String
+    name: String
+    createdAt: String
+    sensorReadings(from: String, to: String, interval: AggregationInterval): [AggregatedSensorReading]
+    rawSensorReadings(from: String, to: String): [SensorReading]
+}
+
+type AggregatedSensorReading {
+    min: SensorReading
+    max: SensorReading
+    avg: SensorReading
+}
+
+type SensorReading {
+    id: String
+    hiveId: String
+    temperature: Float
+    humidity: Float
+    co2Emission: Float
+    precipitation: Float
+    createdAt: String
+}
+
+type User {
+    id: String
+    email: String
+    firstname: String
+    lastname: String
+    name: String
+    username: String
+}
+
+type Query {
+    me: User
+    hiveSensorReadings(hiveIds: [String!]!): [Hive]
+    hives: [Hive]
+}
+
+type Mutation {
+    addHive(id: String!, name: String): Hive
+}
+
+type Subscription {
+    sensorReadingAdded(hiveId: String!): SensorReading
+}

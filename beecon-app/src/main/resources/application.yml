@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: beecon-app
+
+  web:
+    resources:
+      static-locations:
+        - file:./beecon-ui/dist
+
+  banner:
+    location: classpath:/banner.txt
+
+  graphql:
+    websocket:
+      path: /graphql # path for websocket connection
+    graphiql:
+      enabled: true # enables graphiql interface at /graphiql
+
+management:
+  endpoint:
+    health:
+      probes:
+        # Exposes /actuator/health/liveness & /actuator/health/readiness endpoints.
+        # Used for health checks in ECS or K8s.
+        enabled: true
+  server:
+    port: 8082 # use dedicated port for management endpoints to avoid accidental exposure

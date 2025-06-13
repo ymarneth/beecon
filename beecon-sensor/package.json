@@ -1,0 +1,17 @@
+{
+  "name": "beecon-sensor",
+  "version": "1.0.0",
+  "main": "sensor.js",
+  "scripts": {
+    "readings": "node sensor.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mqtt": "^5.13.0",
+    "oauth4webapi": "^3.5.1",
+    "undici": "^7.10.0"
+  }
+}

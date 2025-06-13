@@ -1,0 +1,30 @@
+{
+  "name": "beecon-ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "preview": "vite preview",
+    "prettier": "npx prettier . --write"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.13.8",
+    "@nuxt/ui": "^3.1.0",
+    "@vue/apollo-composable": "^4.2.2",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-ws": "^6.0.5",
+    "vue": "^3.5.13",
+    "vue-chartjs": "^5.3.2",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "prettier": "3.5.3",
+    "vite": "^6.2.4",
+    "vite-plugin-vue-devtools": "^7.7.2"
+  }
+}
